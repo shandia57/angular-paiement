@@ -1,6 +1,6 @@
 <div class="home">
   <div class="home-title">
-    <h2>Paiement</h2>
+    <h2>Paiement With Ngx Stripe</h2>
   </div>
 
   <div class="home-body">
@@ -44,6 +44,7 @@
     </div>
     <!--  Right side  -->
     <div class="home-body-right">
+      <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest!">
       <div class="right-title">
         <h3>Credit card</h3>
         <span class="method-payment">
@@ -52,7 +53,14 @@
         </span>
       </div>
       <div class="right-credit-card">
-        input stripe
+
+          <input type="text" formControlName="name" placeholder="Jane Doe">
+          <ngx-stripe-card
+            [options]="cardOptions"
+            [elementsOptions]="elementsOptions"
+          >
+          </ngx-stripe-card>
+
       </div>
       <div class="right-price">
         <span class="small-title">
@@ -65,8 +73,10 @@
         </span>
       </div>
       <div class="right-button">
-        <button type="button" class="btn btn-primary">Pay now</button>
+        <button type="submit" class="btn btn-primary">Pay now</button>
       </div>
+      </form>
     </div>
+
   </div>
 </div>
