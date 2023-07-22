@@ -1,0 +1,98 @@
+.home{
+  margin: 5% 10%;
+  &-title{}
+  &-body{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+
+    &-left{
+      //background-color: blue;
+      width: 20%;
+      padding: 30px;
+      border-right : 2px solid #A8A196;
+      .left-img{
+        width: 100%;
+        img{
+          width: 100%;
+          border-radius: 10px;
+          text-align: center;
+        }
+      }
+      .left-title{
+        display: flex;
+        align-items: center;
+        .details{
+          width: 80%;
+          display: grid;
+          .author{
+            font-weight: 600;
+            font-size: 1.5rem;
+          }
+        }
+        .icon{
+          width: 20%;
+          text-align: right;
+        }
+      }
+      .left-description{
+        color: #B7B7B7;
+        font-weight: 500;
+        font-size: 12px;
+        line-height : 14px;
+      }
+      .left-rate{}
+      .left-type{
+        color: #A8A196;
+        font-weight: 500;
+      }
+    }
+    &-right{
+      width: 50%;
+      padding: 30px;
+      .right-title{
+        display: flex;
+        align-items: center;
+        h3{}
+        .method-payment{
+          color :#B2B2B2;
+          font-weight: 500;
+          font-size : 14px;
+          line-height : 16px;
+          margin-left: 20px;
+        }
+      }
+      .right-credit-card{}
+      .right-price{
+        margin-top : 20px;
+        display: grid;
+        .small-title{
+          color: #A8A196;
+          font-weight: 500;
+          font-size : 18px;
+          line-height : 20px;
+          text-transform: uppercase;
+        }
+        .price{
+          margin-top : 10px;
+          font-weight: 600;
+          font-size : 30px;
+          line-height : 20px;
+          letter-spacing: 2px;
+        }
+      }
+      .right-button{
+        margin-top : 20px;
+
+        button{
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+.text-created-by{
+  color : #f54f41;
+  font-weight: 500;
+}

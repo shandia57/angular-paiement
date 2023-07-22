@@ -1,0 +1,49 @@
+@media (max-width: 500px){
+  .home{
+    margin: 5% 5%;
+    &-title{}
+    &-body{
+      display: block;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 10px;
+      &-left{
+        width: 100%;
+        border-right : none;
+        border-bottom : 1px solid #A8A196;
+        .left-img{
+          img{}
+        }
+        .left-title{
+          .details{
+            .author{}
+          }
+          .icon{}
+        }
+        .left-description{}
+        .left-rate{}
+        .left-type{}
+      }
+      &-right{
+        width: 100%;
+        padding: 30px;
+        .right-title{
+          h3{
+            width: 70%;
+          }
+          .method-payment{}
+        }
+        .right-credit-card{}
+        .right-price{
+          .small-title{}
+          .price{}
+        }
+        .right-button{
+          button{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .text-created-by{}
+}
