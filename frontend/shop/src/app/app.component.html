@@ -45,43 +45,93 @@
     <!--  Right side  -->
     <div class="home-body-right">
       <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest!">
-      <div class="right-title">
+        <!--  Title  -->
+        <div class="right-title">
         <h3>Credit card</h3>
         <span class="method-payment">
           Change the Payment method
           <i class="fa-solid fa-chevron-right"></i>
         </span>
       </div>
-      <div class="right-credit-card">
-        <div class="credit-card-header">
-          <div class="header-title">
-            Mastercard
+        <!--  Design card  -->
+        <div class="stripe-card" ngxStripeCardGroup [elementsOptions]="elementsOptions">
+          <!--  FRONT Credit Card  -->
+          <div class="right-credit-card">
+            <div class="credit-card-header">
+              <div class="header-title">
+                Mastercard
+              </div>
+              <div class="header-logo">
+                <img src="./assets/mastercard.png" alt="">
+              </div>
+            </div>
+            <!--  Card Number  -->
+            <div class="stripe-element">
+              <div class="mb-3">
+                <label  class="form-label">NUMBER</label>
+                <ngx-stripe-card-number
+                  [options]="cardOptions"
+                ></ngx-stripe-card-number>
+              </div>
+            </div>
+            <!--  Name & Expiry date -->
+            <div class="credit-card-bottom">
+              <!--  Customer name -->
+              <div class="name">
+                <div class="mb-3">
+                  <label for="name" class="form-label">NAME</label>
+                  <input type="text" class="" id="name">
+                </div>
+              </div>
+              <!--  expiry date -->
+              <div class="expiry-date">
+                <div class=" stripe-element">
+                  <div class="mb-3">
+                    <label  class="form-label">EXPIRY DATE</label>
+                    <ngx-stripe-card-expiry
+                      [options]="cardOptions"
+                      containerClass="test"
+                    ></ngx-stripe-card-expiry>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="header-logo">
-            <img src="" alt="">
+          <!--  Back credit card  -->
+          <div class="right-backend-credit-card">
+            <div class="container-cvc">
+              <div class="logo-credit-card">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <!--  CVC CODE  -->
+              <div class="w-full cvc-code stripe-element">
+                <div class="mb-3">
+                  <label  class="form-label">CVC CODE</label>
+                  <ngx-stripe-card-cvc
+                    [options]="cvcOptions"
+                  ></ngx-stripe-card-cvc>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-          <ngx-stripe-card
-            [options]="cardOptions"
-            [elementsOptions]="elementsOptions">
-          </ngx-stripe-card>
 
-      </div>
-      <div class="right-price">
-        <span class="small-title">
-          price
-        </span>
-        <span class="price ">
-          <span class="text-created-by"><b>2500 </b></span>€
-        </span>
-        <span class="device">
-        </span>
-      </div>
-      <div class="right-button">
-        <button type="submit" class="btn btn-primary">Pay now</button>
-      </div>
+        </div>
+        <!--  Price  -->
+        <div class="right-price">
+          <span class="small-title">
+            price
+          </span>
+          <span class="price ">
+            <span class="text-created-by"><b>2500 </b></span>€
+          </span>
+          <span class="device">
+          </span>
+        </div>
+        <!--  Button purchase  -->
+        <div class="right-button">
+          <button type="submit" class="btn btn-primary">Pay now</button>
+        </div>
       </form>
     </div>
-
   </div>
 </div>

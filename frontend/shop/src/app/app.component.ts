@@ -22,12 +22,28 @@ export class AppComponent implements OnInit{
     style: {
       base: {
         iconColor: '#666EE8',
-        color: '#31325F',
+        color: '#fff',
         fontWeight: '300',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSize: '18px',
         '::placeholder': {
-          color: '#CFD7E0'
+          color: '#fff'
+        }
+      }
+    }
+  };
+
+  cvcOptions: StripeCardElementOptions = {
+    iconStyle: 'solid',
+    style: {
+      base: {
+        iconColor: '#666EE8',
+        color: '#27374D',
+        fontWeight: '300',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSize: '18px',
+        '::placeholder': {
+          color: '#27374D'
         }
       }
     }

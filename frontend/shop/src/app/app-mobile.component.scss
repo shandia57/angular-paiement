@@ -25,14 +25,45 @@
       }
       &-right{
         width: 100%;
-        padding: 30px;
+        padding: 10px;
+        margin-top : 20px;
         .right-title{
-          h3{
-            width: 70%;
-          }
+          h3{}
           .method-payment{}
         }
-        .right-credit-card{
+        .stripe-card{
+          display: block;
+          width: 100%;
+          .right-credit-card{
+            width: 100%;
+            .credit-card-header{
+              .header-title{}
+              .header-logo{}
+            }
+            .credit-card-bottom{
+              display: block;
+              .name{
+                width: 100%;
+                .mb-3{
+                  input{}
+                  input:focus{}
+                }
+              }
+              .expiry-date{}
+            }
+          }
+          .right-backend-credit-card{
+            width: 100%;
+            padding: 10px;
+            position: relative;
+            .container-cvc{
+              position: inherit;
+              display: flex;
+              .logo-credit-card{
+                padding-right: 10px;
+              }
+            }
+          }
         }
         .right-price{
           .small-title{}
