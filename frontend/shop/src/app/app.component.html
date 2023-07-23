@@ -53,15 +53,17 @@
         </span>
       </div>
       <div class="right-credit-card">
-        <!--  Name  -->
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name">
+        <div class="credit-card-header">
+          <div class="header-title">
+            Mastercard
+          </div>
+          <div class="header-logo">
+            <img src="" alt="">
+          </div>
         </div>
           <ngx-stripe-card
             [options]="cardOptions"
-            [elementsOptions]="elementsOptions"
-          >
+            [elementsOptions]="elementsOptions">
           </ngx-stripe-card>
 
       </div>

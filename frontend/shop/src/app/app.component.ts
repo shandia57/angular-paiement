@@ -21,18 +21,14 @@ export class AppComponent implements OnInit{
     iconStyle: 'solid',
     style: {
       base: {
-        iconColor: '#c4f0ff',
-        color: '#fff',
-        fontWeight: 500,
-        fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-        fontSize: '16px',
-        fontSmoothing: 'antialiased',
-        ':-webkit-autofill': {color: '#fce883'},
-        '::placeholder': {color: '#87bbfd'}
-      },
-      invalid: {
-        iconColor: '#ffc7ee',
-        color: '#ffc7ee'
+        iconColor: '#666EE8',
+        color: '#31325F',
+        fontWeight: '300',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSize: '18px',
+        '::placeholder': {
+          color: '#CFD7E0'
+        }
       }
     }
   };
@@ -53,7 +49,16 @@ export class AppComponent implements OnInit{
 
   createToken(): void {
     const name = this.stripeTest!.get('name')!.value;
-    const cardnumber = this.stripeTest!.get('cardnumber')!.value;
-    console.log("cardnumber : ", cardnumber)
+    this.stripeService
+      .createToken(this.card!.element, { name })
+      .subscribe((result) => {
+        if (result.token) {
+          // Use the token
+          console.log(result.token.id);
+        } else if (result.error) {
+          // Error creating the token
+          console.log(result.error.message);
+        }
+      });
   }
 }
