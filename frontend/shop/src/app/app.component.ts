@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { StripeService, StripeCardComponent } from 'ngx-stripe';
+import {StripeService, StripeCardComponent, StripeCardNumberComponent} from 'ngx-stripe';
 import {
   StripeCardElementOptions,
   StripeElementsOptions
@@ -23,12 +23,12 @@ export class AppComponent implements OnInit{
     style: {
       base: {
         iconColor: '#666EE8',
-        color: '#fff',
+        color: 'red',
         fontWeight: '300',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSize: '18px',
         '::placeholder': {
-          color: '#fff'
+          color: 'red'
         }
       }
     }
@@ -56,6 +56,8 @@ export class AppComponent implements OnInit{
 
   stripeTest?: FormGroup;
 
+  url = "http://localhost:8080/api"
+
   constructor(private fb: FormBuilder,
               private stripeService: StripeService,
               private http : HttpClient
@@ -67,7 +69,7 @@ export class AppComponent implements OnInit{
     });
 
   //   Test api
-    this.http.get("https://localhost:8080/api")
+    this.http.get(this.url)
       .subscribe((res) => {
         console.log("Response : ", res);
       })
@@ -81,10 +83,25 @@ export class AppComponent implements OnInit{
         if (result.token) {
           // Use the token
           console.log(result.token.id);
+          this.purchase(
+            {
+              id : result.token.id,
+              name,
+              amount : "3.50"
+            }
+          )
         } else if (result.error) {
           // Error creating the token
           console.log(result.error.message);
         }
       });
   }
+
+  purchase(data : any) : void {
+    this.http.post(this.url, data)
+      .subscribe((res) => {
+        console.log("Res : ", res)
+      })
+  }
+
 }
