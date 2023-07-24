@@ -9,6 +9,7 @@ import {NgxStripeModule} from "ngx-stripe";
 import { AppComponent } from './app.component';
 // CONST
 import {PRIVATE_STRIPE_KEY} from "./private_stripe_key";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {PRIVATE_STRIPE_KEY} from "./private_stripe_key";
     AppRoutingModule,
     NgxStripeModule.forRoot(PRIVATE_STRIPE_KEY),
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

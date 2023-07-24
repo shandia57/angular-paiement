@@ -5,6 +5,7 @@ import {
   StripeElementsOptions
 } from '@stripe/stripe-js';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -55,12 +56,21 @@ export class AppComponent implements OnInit{
 
   stripeTest?: FormGroup;
 
-  constructor(private fb: FormBuilder, private stripeService: StripeService) {}
+  constructor(private fb: FormBuilder,
+              private stripeService: StripeService,
+              private http : HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.stripeTest = this.fb.group({
       name: ['', [Validators.required]]
     });
+
+  //   Test api
+    this.http.get("https://localhost:8080/api")
+      .subscribe((res) => {
+        console.log("Response : ", res);
+      })
   }
 
   createToken(): void {
